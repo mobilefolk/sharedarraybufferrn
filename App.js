@@ -76,9 +76,12 @@ const App: () => Node = () => {
   return (
     <WebView
       ref={webviewRef}
-      source={{uri: 'https://mobilefolk.com'}}
+      source={{uri: '<h1>Test RN</h1>'}}
       javaScriptEnabled
-      onMessage={event => alert(JSON.stringify(event.nativeEvent.data))}
+      onMessage={event => {
+        console.log(event.nativeEvent.data);
+        Alert.alert('', JSON.stringify(event.nativeEvent.data));
+      }}
     />
   );
 };
